@@ -1,0 +1,64 @@
+{
+  "name": "@doan-labs/peek-svelte",
+  "version": "0.1.0",
+  "type": "module",
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.test.ts",
+    "!dist/**/*.test.*"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "svelte-package -i src -o dist",
+    "prepack": "svelte-package -i src -o dist",
+    "check-types": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@doan-labs/peek": "workspace:^"
+  },
+  "peerDependencies": {
+    "svelte": "^5"
+  },
+  "devDependencies": {
+    "@peek/typescript-config": "workspace:*",
+    "@sveltejs/package": "^2",
+    "@sveltejs/vite-plugin-svelte": "^7",
+    "jsdom": "^25",
+    "svelte": "^5",
+    "svelte-check": "^4",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.0",
+    "vitest": "^5"
+  },
+  "description": "Deterministic SVG avatars from a name, as a Svelte component. A Doan Labs project.",
+  "license": "MIT",
+  "author": "Doan Labs",
+  "homepage": "https://peek.doan-labs.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doan-labs/peek.git",
+    "directory": "packages/peek-svelte"
+  },
+  "keywords": [
+    "avatar",
+    "svg",
+    "svelte",
+    "deterministic",
+    "peek"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

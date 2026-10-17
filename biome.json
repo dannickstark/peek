@@ -10,8 +10,10 @@
       "!!**/.output",
       "!!**/.nitro",
       "!!**/.tanstack",
+      "!!**/.svelte-kit",
       "!!**/routeTree.gen.ts",
-      "!!peek.html"
+      "!!peek.html",
+      "!**/*.svelte"
     ]
   },
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
