@@ -1,8 +1,10 @@
 import { describe, expect, test } from 'bun:test'
 import { createElement } from 'react'
 import { renderToString } from 'react-dom/server'
+import * as adapter from './adapter'
 import { depth, draw, type Node, restPose } from './draw'
 import { fnv1a, identify, seed, tidy } from './identity'
+import * as entry from './index'
 import { Peek } from './peek'
 import { settle, toSvg } from './svg'
 import {
@@ -454,5 +456,21 @@ describe('accessories', () => {
         }
       }
     }
+  })
+})
+
+describe('adapter subpath', () => {
+  test('exposes the react-free primitives a framework adapter needs', () => {
+    expect(typeof adapter.settle).toBe('function')
+    expect(typeof adapter.draw).toBe('function')
+    expect(typeof adapter.restPose).toBe('function')
+    expect(typeof adapter.serialize).toBe('function')
+    expect(typeof adapter.toSvg).toBe('function')
+    expect(typeof adapter.Live).toBe('function')
+  })
+
+  test('the main entry stays frozen', () => {
+    expect('Live' in entry).toBe(false)
+    expect('restPose' in entry).toBe(false)
   })
 })

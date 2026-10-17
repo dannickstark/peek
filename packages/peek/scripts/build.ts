@@ -1,7 +1,12 @@
 /* Compile public entry points and declarations for ordinary JS consumers. */
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 
-for (const entry of ['src/index.ts', 'src/svg.ts', 'src/identity.ts']) {
+for (const entry of [
+  'src/index.ts',
+  'src/svg.ts',
+  'src/identity.ts',
+  'src/adapter.ts',
+]) {
   const result = await Bun.build({
     entrypoints: [entry],
     outdir: 'dist',
